@@ -1,4 +1,6 @@
+import CodeBlock from "./code-block";
 import { useLocalState } from "./use-local-state";
+import code from "./use-local-state?raw";
 
 // --- Mock Interfaces ---
 type Plan = "Free" | "Pro" | "Ultimate";
@@ -80,37 +82,18 @@ const LocalStateDemoPage = () => {
             LocalStorage. Smart parsing for BigInt, Booleans, Numbers, and JSON
             Objects.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <a
-              href={docsLink}
-              className="bg-black text-white px-8 py-3 rounded-full font-bold hover:bg-black/80 transition-all flex items-center gap-2 shadow-lg shadow-slate-200"
-            >
-              Read the Docs
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <title>chevron right</title>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2.5}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </a>
-            <span className="text-slate-400 font-medium text-sm italic">
-              Try refreshing the page to see the magic.
-            </span>
-          </div>
         </div>
+        <CodeBlock code={code} title="use-local-state.ts" />
       </header>
 
       {/* --- MAIN CONTENT --- */}
       <main className="max-w-6xl mx-auto py-16 px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <span className="text-slate-400 font-medium text-sm italic">
+            Try refreshing the page to see the magic.
+          </span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           <div className="grid grid-cols-1 gap-8">
             {/* PERSISTING NUMBERS */}
             <section className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col">
@@ -172,7 +155,7 @@ const LocalStateDemoPage = () => {
                 onClick={resetEnabled}
                 className="mt-6 text-xs font-bold text-slate-400 hover:text-black uppercase"
               >
-                Defaults
+                Reset Toggle
               </button>
             </section>
           </div>
@@ -268,44 +251,51 @@ const LocalStateDemoPage = () => {
             </button>
           </section>
         </div>
-        {/* FEATURES SUMMARY */}
-        <section className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-slate-200 pt-16">
-          <div className="space-y-3">
-            <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-bold">
-              1
-            </div>
-            <h3 className="font-bold text-lg text-black/80">SSR Safety</h3>
-            <p className="text-slate-600 text-sm leading-relaxed">
-              Checks for the existence of the <code>window</code> object to
-              prevent hydration errors in Next.js.
-            </p>
-          </div>
-          <div className="space-y-3">
-            <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-bold">
-              2
-            </div>
-            <h3 className="font-bold text-lg text-black/80">
-              Typesafe Parsing
-            </h3>
-            <p className="text-slate-600 text-sm leading-relaxed">
-              Leverages your initial state type to ensure your data is cast
-              correctly when retrieved.
-            </p>
-          </div>
-          <div className="space-y-3">
-            <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-bold">
-              3
-            </div>
-            <h3 className="font-bold text-lg text-black/80">Cross-Tab Sync</h3>
-            <p className="text-slate-600 text-sm leading-relaxed">
-              Uses the Storage Event to synchronize state across multiple open
-              tabs automatically.
-            </p>
-          </div>
-        </section>
       </main>
 
-      <footer className="py-16 text-center text-slate-400 text-sm border-t border-slate-200 mt-20 bg-white">
+      <div className="bg-white">
+        <div className="max-w-6xl mx-auto px-6 py-16">
+          {/* FEATURES SUMMARY */}
+          <section className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="space-y-3">
+              <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-bold">
+                1
+              </div>
+              <h3 className="font-bold text-lg text-black/80">SSR Safety</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Checks for the existence of the <code>window</code> object to
+                prevent hydration errors in Next.js.
+              </p>
+            </div>
+            <div className="space-y-3">
+              <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-bold">
+                2
+              </div>
+              <h3 className="font-bold text-lg text-black/80">
+                Typesafe Parsing
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Leverages your initial state type to ensure your data is cast
+                correctly when retrieved.
+              </p>
+            </div>
+            <div className="space-y-3">
+              <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-bold">
+                3
+              </div>
+              <h3 className="font-bold text-lg text-black/80">
+                Cross-Tab Sync
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Uses the Storage Event to synchronize state across multiple open
+                tabs automatically.
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <footer className="py-16 text-center text-slate-400 text-sm bg-white">
         &copy; {new Date().getFullYear()} use-local-state. Created by{" "}
         <a href="https://afrieirham.com" className="hover:underline">
           Afrie
