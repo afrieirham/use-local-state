@@ -1,17 +1,23 @@
 import { useLocalState } from "./use-local-state";
 
 // --- Mock Interfaces ---
-interface UserSettings {
+type Plan = "Free" | "Pro" | "Ultimate";
+type UserSettings = {
   username: string;
-  plan: "Free" | "Pro" | "Ultimate";
+  plan: Plan;
   emailUpdates: boolean;
-}
+};
 
 const DEFAULT_SETTINGS: UserSettings = {
   username: "Afrie",
   plan: "Pro",
   emailUpdates: true,
 };
+
+const repoLink = "https://github.com/afrieirham/use-local-state";
+const docsLink = "https://github.com/afrieirham/use-local-state#readme";
+const licenseLink =
+  "https://github.com/afrieirham/use-local-state/blob/main/LICENSE";
 
 const LocalStateDemoPage = () => {
   const [count, setCount, resetCount] = useLocalState(0, "ls-demo-counter");
@@ -43,15 +49,18 @@ const LocalStateDemoPage = () => {
           </div>
           <div className="flex items-center gap-6">
             <div className="hidden sm:flex items-center gap-6 text-sm font-medium text-slate-500">
-              <a href="#docs" className="hover:text-black transition-colors">
+              <a href={docsLink} className="hover:text-black transition-colors">
                 Docs
               </a>
-              <a href="#license" className="hover:text-black transition-colors">
+              <a
+                href={licenseLink}
+                className="hover:text-black transition-colors"
+              >
                 License
               </a>
             </div>
             <a
-              href="https://github.com"
+              href={repoLink}
               className="text-black hover:text-slate-600 transition-colors"
             >
               <GitHubIcon />
@@ -73,7 +82,7 @@ const LocalStateDemoPage = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <a
-              href=""
+              href={docsLink}
               className="bg-black text-white px-8 py-3 rounded-full font-bold hover:bg-black/80 transition-all flex items-center gap-2 shadow-lg shadow-slate-200"
             >
               Read the Docs
@@ -208,7 +217,10 @@ const LocalStateDemoPage = () => {
                     name="plan"
                     value={settings.plan}
                     onChange={(e) =>
-                      setSettings({ ...settings, plan: e.target.value as any })
+                      setSettings({
+                        ...settings,
+                        plan: e.target.value as Plan,
+                      })
                     }
                     className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-sm font-medium"
                   >
@@ -294,7 +306,17 @@ const LocalStateDemoPage = () => {
       </main>
 
       <footer className="py-16 text-center text-slate-400 text-sm border-t border-slate-200 mt-20 bg-white">
-        &copy; 2026 use-local-state. Created by Afrie.
+        &copy; {new Date().getFullYear()} use-local-state. Created by{" "}
+        <a href="https://afrieirham.com" className="hover:underline">
+          Afrie
+        </a>
+        . Icon by{" "}
+        <a
+          href="https://www.freepik.com/icon/file-sharing_8079836"
+          className="hover:underline"
+        >
+          Freepik
+        </a>
       </footer>
     </div>
   );
