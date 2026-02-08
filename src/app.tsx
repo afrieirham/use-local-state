@@ -295,6 +295,32 @@ const LocalStateDemoPage = () => {
         </div>
       </div>
 
+      {/* --- DID YOU LIKE THIS? SECTION --- */}
+      <section className="py-20 px-6 text-center">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            Did you like this project?
+          </h2>
+          <p className="text-slate-600 leading-relaxed">
+            Please give it a star on{" "}
+            <a href={repoLink} className="text-blue-400 underline">
+              GitHub
+            </a>
+            . Thank you!
+          </p>
+          <p className="text-slate-600 leading-relaxed">
+            You might also be interested in{" "}
+            <a
+              href="https://use-sortable-list.pages.dev"
+              className="text-blue-400 underline"
+            >
+              use-sortable-list
+            </a>
+            .
+          </p>
+        </div>
+      </section>
+
       <footer className="py-16 text-center text-slate-400 text-sm bg-white">
         &copy; {new Date().getFullYear()} use-local-state. Created by{" "}
         <a href="https://afrieirham.com" className="hover:underline">
