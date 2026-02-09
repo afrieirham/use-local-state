@@ -89,7 +89,31 @@ export default function Home() {
             Try refreshing the page to see the magic.
           </span>
         </div>
-        <div>{isMounted ? <Demo /> : <DemoSkeleton />}</div>
+        <div ref={parent}>{isMounted ? <Demo /> : <DemoSkeleton />}</div>
+        <div className="mt-8 flex items-center justify-center gap-2 text-[11px] font-medium text-slate-400 bg-slate-100 w-fit mx-auto px-4 py-1.5 rounded-full">
+          <svg
+            className="w-3.5 h-3.5 text-blue-500"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <title>info icon</title>
+            <path
+              fillRule="evenodd"
+              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+              clipRule="evenodd"
+            />
+          </svg>
+          <span>
+            This demo uses{" "}
+            <a
+              href="https://auto-animate.formkit.com?ref=use-local-state.pages.dev"
+              className="text-blue-500 hover:underline"
+            >
+              auto-animate
+            </a>{" "}
+            to smooth out the initial hydration transition.
+          </span>
+        </div>
       </main>
 
       <div className="bg-white">
@@ -101,18 +125,6 @@ export default function Home() {
                 1
               </div>
               <h3 className="font-bold text-lg text-black/80">
-                Instant Hydration
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                State is pulled from the browser on the first render. No
-                waiting, no flickering.
-              </p>
-            </div>
-            <div className="space-y-3">
-              <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-bold">
-                2
-              </div>
-              <h3 className="font-bold text-lg text-black/80">
                 Typesafe Parsing
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed">
@@ -122,7 +134,7 @@ export default function Home() {
             </div>
             <div className="space-y-3">
               <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-bold">
-                3
+                2
               </div>
               <h3 className="font-bold text-lg text-black/80">
                 Cross-Tab Sync
@@ -130,6 +142,16 @@ export default function Home() {
               <p className="text-slate-600 text-sm leading-relaxed">
                 Uses the Storage Event to synchronize state across multiple open
                 tabs automatically.
+              </p>
+            </div>
+            <div className="space-y-3">
+              <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-bold">
+                3
+              </div>
+              <h3 className="font-bold text-lg text-black/80">Client-Only</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Designed strictly for the browser. Use a mount guard for SSR
+                hydration.
               </p>
             </div>
           </section>
