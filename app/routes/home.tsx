@@ -1,4 +1,3 @@
-import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useEffect, useState } from "react";
 import CodeBlock from "~/components/code-block";
 import Demo from "~/demo/demo";
@@ -24,7 +23,6 @@ const licenseLink =
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
-  const [parent] = useAutoAnimate();
 
   useEffect(() => {
     setIsMounted(true);
@@ -90,31 +88,7 @@ export default function Home() {
             Try refreshing the page to see the magic.
           </span>
         </div>
-        <div ref={parent}>{isMounted ? <Demo /> : <DemoSkeleton />}</div>
-        <div className="mt-8 flex items-center justify-center gap-2 text-[11px] font-medium text-slate-400 bg-slate-100 w-fit mx-auto px-4 py-1.5 rounded-full">
-          <svg
-            className="w-3.5 h-3.5 text-blue-500"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <title>info icon</title>
-            <path
-              fillRule="evenodd"
-              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-              clipRule="evenodd"
-            />
-          </svg>
-          <span>
-            This demo uses{" "}
-            <a
-              href="https://auto-animate.formkit.com?ref=use-local-state.pages.dev"
-              className="text-blue-500 hover:underline"
-            >
-              auto-animate
-            </a>{" "}
-            to smooth out the initial hydration transition.
-          </span>
-        </div>
+        <div>{isMounted ? <Demo /> : <DemoSkeleton />}</div>
       </main>
 
       <div className="bg-white">
