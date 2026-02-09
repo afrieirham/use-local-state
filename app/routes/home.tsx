@@ -71,7 +71,8 @@ export default function Home() {
       <header className="bg-white border-b border-slate-100 py-20 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-6xl font-extrabold tracking-tight text-black mb-6">
-            State that <span className="text-blue-600">persists.</span>
+            Sync <span className="text-blue-600">react state</span> to{" "}
+            <span className="text-blue-600">local storage.</span>
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
             A typesafe React hook that seamlessly syncs your state with
